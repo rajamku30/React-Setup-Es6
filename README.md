@@ -1,4 +1,4 @@
-# SVB TMS-Frontend
+#  TMS-Frontend
 
 - Description.
 
@@ -138,9 +138,73 @@ for that reasons we have a helper finction named `remCalc()` that we can use to 
 ##whitespace for paddings and margins
 use whitespace constants to make the paddings and margins follow the pattern of the application. on general basis we try to use the pattern of 2,4,8,16,32,64 etc.for all whitespace we try to use ws.sm variables defined in the styles/Constant.js.
 
-#Design resources
-Style guide
-https://wiki1.corp.svbank.com/display/TEC4E/Current+SVB+UI+Design+System%2C+Standards+and+Branding+Guides
 
-Visual design
-https://www.figma.com/file/Is2NkisfZVHcFUSP3qq4Df/TMS_Dashboard-v1?node-id=278%3A0
+
+create files and update
+.babelrc
+---------
+{
+    "presets": [
+        "@babel/preset-env",
+        [
+           "@babel/preset-react",
+           {
+               "runtime": "automatic"
+           }
+        ]
+    ]
+
+    
+}
+
+.eslintrc.js
+-------------
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'standard',
+    'prettier',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['react'],
+  rules: {
+    'react/boolean-prop-naming': [
+      'error',
+      { rule: '^(is|has)[A-Z]([A-Za-z0-9]?)+' },
+    ],
+  },
+  settings: {
+    react: {
+      version: 'latest',
+    },
+  },
+}
+
+
+.prettierrc.js
+--------------
+module.exports = {
+  semi: true,
+  trailingComma: 'es5',
+  singleQuote: true,
+  printWidth: 80,
+  tabWidth: 2,
+  endOfLine: 'auto',
+}
+
+
+.gitignore
+----------
+build
+node_modules
